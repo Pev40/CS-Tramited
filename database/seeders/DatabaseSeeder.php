@@ -2,22 +2,26 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Acta;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     /**
+     * php artisan make: seeder CursoSeeder -> creamos el curso
+     * php atisan db:seed ->corremos el seeder
      * Seed the application's database.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $this->call(EscuelaSeeder::class);
+        $this->call(RoleSeeder::class);
+        $this->call(EtapaSeeder::class);
+        $this->call(EstadoSeeder::class);
+        $this->call(AreaSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(TipoactaSeeder::class);
     }
 }
